@@ -1,0 +1,25 @@
+{
+    "menu": [
+        {
+            "url": "/user",
+            "name": "Dashboard",
+            "icon": "menu-icon tf-icons ti ti-smart-home",
+            "slug": "dashboard-analytics"
+        },
+        {
+            "url": "user/categories",
+            "name": "Task Categories",
+            "icon": "menu-icon tf-icons ti ti-typography",
+            "slug": "categories-management"
+        },
+        {
+            "url": "user/tasks",
+            "name": "Tasks Management",
+            "icon": "menu-icon tf-icons ti ti-typography",
+            "slug": "tasks-management"
+        }
+
+
+
+    ]
+}
