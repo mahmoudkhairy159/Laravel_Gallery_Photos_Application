@@ -52,7 +52,7 @@
 
 <div class="card mb-4">
     <h5 class="card-header">Edit Category</h5>
-    <form class="card-body" action="{{ route('user.categories.update', $item->id) }}" method="post" enctype="multipart/form-data">
+    <form class="card-body" action="{{ route('user.categories.update', $item->id) }}" method="Photo" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 

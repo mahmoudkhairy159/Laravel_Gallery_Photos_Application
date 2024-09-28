@@ -508,7 +508,7 @@
           }
         },
         {
-          // Avatar image/badge, Name and post
+          // Avatar image/badge, Name and Photo
           targets: 2,
           responsivePriority: 4,
           render: function (data, type, full, meta) {

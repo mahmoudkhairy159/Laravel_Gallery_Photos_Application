@@ -2,7 +2,7 @@
 
 return [
     //login
-    "email" => "E-post",
+    "email" => "E-Photo",
     "password" => "Lösenord",
     "login" => "Logga in",
     "remember" => "Kom ihåg mig",

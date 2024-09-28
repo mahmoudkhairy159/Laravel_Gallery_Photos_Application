@@ -14,7 +14,7 @@ return [
     */
     'password' => 'Lösenorden måste vara minst åtta tecken långa och matcha bekräftelsen.',
     'reset' => 'Ditt lösenord har återställts!',
-    'sent' => 'Vi har skickat en e-post med din länk för att återställa lösenordet!',
+    'sent' => 'Vi har skickat en e-Photo med din länk för att återställa lösenordet!',
     'token' => 'Denna återställningstoken för lösenordet är ogiltig.',
     'user' => "Vi kan inte hitta en användare med den e-postadressen.",
 

@@ -72,5 +72,5 @@ class PhotoSave extends Model
         return static::where('user_id', $userId)->where('photo_id', $photoId)->exists();
     }
 
-    
+
 }

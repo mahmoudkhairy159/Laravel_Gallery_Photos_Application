@@ -45,13 +45,13 @@ $(function () {
                     visible: false
                 },
                 {
-                    // Avatar image/badge, Name and post
+                    // Avatar image/badge, Name and Photo
                     targets: 2,
                     responsivePriority: 4,
                     render: function (data, type, full, meta) {
                         var $user_img = full['avatar'],
                             $name = full['full_name'],
-                            $post = full['post'];
+                            $Photo = full['Photo'];
                         if ($user_img) {
                             // For Avatar image
                             var $output =
@@ -79,7 +79,7 @@ $(function () {
                             $name +
                             '</span>' +
                             '<small class="emp_post text-truncate text-muted">' +
-                            $post +
+                            $Photo +
                             '</small>' +
                             '</div>' +
                             '</div>';

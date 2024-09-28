@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function (e) {
           offCanvasEl = new bootstrap.Offcanvas(offCanvasElement);
           // Empty fields on offCanvas open
           (offCanvasElement.querySelector('.dt-full-name').value = ''),
-            (offCanvasElement.querySelector('.dt-post').value = ''),
+            (offCanvasElement.querySelector('.dt-Photo').value = ''),
             (offCanvasElement.querySelector('.dt-email').value = ''),
             (offCanvasElement.querySelector('.dt-date').value = ''),
             (offCanvasElement.querySelector('.dt-salary').value = '');
@@ -166,13 +166,13 @@ $(function () {
           visible: false
         },
         {
-          // Avatar image/badge, Name and post
+          // Avatar image/badge, Name and Photo
           targets: 3,
           responsivePriority: 4,
           render: function (data, type, full, meta) {
             var $user_img = full['avatar'],
               $name = full['full_name'],
-              $post = full['post'];
+              $Photo = full['Photo'];
             if ($user_img) {
               // For Avatar image
               var $output =
@@ -200,7 +200,7 @@ $(function () {
               $name +
               '</span>' +
               '<small class="emp_post text-truncate text-muted">' +
-              $post +
+              $Photo +
               '</small>' +
               '</div>' +
               '</div>';
@@ -445,7 +445,7 @@ $(function () {
   // On form submit, if form is valid
   fv.on('core.form.valid', function () {
     var $new_name = $('.add-new-record .dt-full-name').val(),
-      $new_post = $('.add-new-record .dt-post').val(),
+      $new_post = $('.add-new-record .dt-Photo').val(),
       $new_email = $('.add-new-record .dt-email').val(),
       $new_date = $('.add-new-record .dt-date').val(),
       $new_salary = $('.add-new-record .dt-salary').val();
@@ -455,7 +455,7 @@ $(function () {
         .add({
           id: count,
           full_name: $new_name,
-          post: $new_post,
+          Photo: $new_post,
           email: $new_email,
           start_date: $new_date,
           salary: '$' + $new_salary,
@@ -484,7 +484,7 @@ $(function () {
         { data: 'full_name' },
         { data: 'email' },
         { data: 'city' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'salary' },
         { data: 'status' },
         { data: '' }
@@ -547,7 +547,7 @@ $(function () {
       columns: [
         { data: '' },
         { data: 'full_name' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'email' },
         { data: 'city' },
         { data: 'start_date' },
@@ -686,7 +686,7 @@ $(function () {
       columns: [
         { data: '' },
         { data: 'full_name' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'email' },
         { data: 'start_date' },
         { data: 'salary' },

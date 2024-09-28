@@ -41,7 +41,7 @@ class PhotoComment extends Model
     /**
      * Get the parent comment (if it's a reply to another comment).
      */
-    public function parent(): BelongsTo
+    public function parentComment(): BelongsTo
     {
         return $this->belongsTo(PhotoComment::class, 'parent_comment_id');
     }

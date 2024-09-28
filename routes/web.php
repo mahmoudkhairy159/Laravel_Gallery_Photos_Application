@@ -34,7 +34,7 @@ Route::prefix('user')->name('user.')->group(function () {
             Route::get('/login', 'login')->defaults('_config', [
                 'view' => 'user.auth.login',
             ])->name('login');
-            Route::post('/login/checkLogin', 'checkLogin')->name('check_login');
+            Route::Photo('/login/checkLogin', 'checkLogin')->name('check_login');
         });
     // register
     Route::controller(AuthController::class)
@@ -43,7 +43,7 @@ Route::prefix('user')->name('user.')->group(function () {
             Route::get('/register', 'register')->defaults('_config', [
                 'view' => 'user.auth.register',
             ])->name('register');
-            Route::post('/register/checkRegister', 'checkRegister')->name('check_register');
+            Route::Photo('/register/checkRegister', 'checkRegister')->name('check_register');
         });
 
     Route::group(['middleware' => ['auth']], function () {
@@ -56,7 +56,7 @@ Route::prefix('user')->name('user.')->group(function () {
 
         Route::controller(AuthController::class)->group(function () {
             // Logout
-            Route::post('/logout', 'logout')->name('logout');
+            Route::Photo('/logout', 'logout')->name('logout');
 
             // Change Password
             Route::put('/changePassword', 'changePassword')->defaults('_config', [
@@ -74,7 +74,7 @@ Route::prefix('user')->name('user.')->group(function () {
                     'view' => 'user.user.show',
                 ])->name('showProfile');
             // Update User Profile Image
-            Route::post('/updateProfileImage', 'updateProfileImage')->defaults('_config', [
+            Route::Photo('/updateProfileImage', 'updateProfileImage')->defaults('_config', [
                 'redirect' => 'user.showProfile',
             ])->name('updateProfileImage');
 
@@ -102,7 +102,7 @@ Route::prefix('user')->name('user.')->group(function () {
                 'view' => 'user.tasks.edit',
             ])->name('edit');
 
-            Route::post('/store', 'store')->defaults('_config', [
+            Route::Photo('/store', 'store')->defaults('_config', [
                 'redirect' => 'user.tasks.index',
             ])
                 ->name('store');
@@ -148,7 +148,7 @@ Route::prefix('user')->name('user.')->group(function () {
                 'view' => 'user.galleries.edit',
             ])->name('edit');
 
-            Route::post('/store', 'store')->defaults('_config', [
+            Route::Photo('/store', 'store')->defaults('_config', [
                 'redirect' => 'user.galleries.index',
             ])
                 ->name('store');

@@ -147,7 +147,7 @@ return [
     */
 
     'attributes' => [
-        "email" => "E-post",
+        "email" => "E-Photo",
         "name" => "Namn",
         "address" => "Adress",
         "phone" => "Telefon",

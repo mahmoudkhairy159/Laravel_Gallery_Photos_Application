@@ -52,7 +52,7 @@
 
     <div class="card mb-4">
         <h5 class="card-header">Create Task</h5>
-        <form class="card-body" action="{{ route('user.tasks.store') }}" method="post" enctype="multipart/form-data">
+        <form class="card-body" action="{{ route('user.tasks.store') }}" method="Photo" enctype="multipart/form-data">
             @csrf
             <div class="row mb-3">
                 <label class="col-sm-3 col-form-label" for="title">Task Title <span class="text-danger">*</span></label>

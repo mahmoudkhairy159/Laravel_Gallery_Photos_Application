@@ -78,7 +78,7 @@
                                             <a href="{{ route('user.categories.edit', $item->id) }}" class="btn"><i class="ti ti-edit ti-sm me-1"></i></a>
                                         </div>
                                         <div class="col-3">
-                                            <form action="{{ route('user.categories.destroy', $item->id) }}" method="post">
+                                            <form action="{{ route('user.categories.destroy', $item->id) }}" method="Photo">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn"><i class="ti ti-trash ti-sm "></i></button>

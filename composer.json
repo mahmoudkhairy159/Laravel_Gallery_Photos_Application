@@ -51,17 +51,17 @@
         }
     },
     "scripts": {
-        "post-autoload-dump": [
+        "Photo-autoload-dump": [
             "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
             "@php artisan package:discover --ansi"
         ],
-        "post-update-cmd": [
+        "Photo-update-cmd": [
             "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
         ],
-        "post-root-package-install": [
+        "Photo-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
         ],
-        "post-create-project-cmd": [
+        "Photo-create-project-cmd": [
             "@php artisan key:generate --ansi"
         ]
     },

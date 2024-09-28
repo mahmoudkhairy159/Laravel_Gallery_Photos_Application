@@ -6,10 +6,12 @@ use Carbon\Carbon;
 use EloquentFilter\Filterable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class Photo extends Model
 {
     use HasFactory, Filterable;
+    const FILES_DIRECTORY = 'photos';
 
     protected $fillable = [
         'user_id',
@@ -25,11 +27,7 @@ class Photo extends Model
     {
         return $this->belongsTo(User::class);
     }
-    // Define relationship with Gallery model
-    public function gallery()
-    {
-        return $this->belongsTo(Gallery::class);
-    }
+   
     /**
      * Get all comments on the photo.
      */
@@ -68,5 +66,28 @@ class Photo extends Model
     public function saves()
     {
         return $this->belongsToMany(User::class, 'photo_saves');
+    }
+    /**
+     * Check if photo is saved by the current user.
+     */
+    public function isSaved(): bool
+    {
+        return $this->saves()->where('user_id', Auth::guard('user-api')->id())->exists();
+    }
+
+    /**
+     * Parent photo relationship.
+     */
+    public function parentPhoto()
+    {
+        return $this->belongsTo(Photo::class, 'parent_photo_id');
+    }
+
+    /**
+     * Shares relationship for shared photos.
+     */
+    public function shares()
+    {
+        return $this->hasMany(Photo::class, 'parent_photo_id');
     }
 }

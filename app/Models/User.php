@@ -59,13 +59,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-  /**
-     * Get all galleries created by the user.
-     */
-    public function galleries()
-    {
-        return $this->hasMany(Gallery::class);
-    }
+
 
     /**
      * Get all photos uploaded by the user.

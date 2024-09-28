@@ -124,7 +124,7 @@ $(function () {
       columns: [
         { data: 'full_name' },
         { data: 'email' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'city' },
         { data: 'start_date' },
         { data: 'salary' }
@@ -146,7 +146,7 @@ $(function () {
         { data: '' },
         { data: 'full_name' },
         { data: 'email' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'city' },
         { data: 'start_date' },
         { data: 'salary' }
@@ -213,7 +213,7 @@ $(function () {
         { data: '' },
         { data: 'full_name' },
         { data: 'email' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'city' },
         { data: 'start_date' },
         { data: 'salary' },

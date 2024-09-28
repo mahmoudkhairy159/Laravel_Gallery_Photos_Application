@@ -18,7 +18,7 @@ $(function () {
       ajax: assetsPath + 'json/table-datatable.json',
       columns: [
         { data: 'full_name' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'email' },
         { data: 'city' },
         { data: 'start_date' },
@@ -122,12 +122,12 @@ $(function () {
           visible: false
         },
         {
-          // Avatar image/badge, Name and post
+          // Avatar image/badge, Name and Photo
           targets: 3,
           render: function (data, type, full, meta) {
             var $user_img = full['avatar'],
               $name = full['full_name'],
-              $post = full['post'];
+              $Photo = full['Photo'];
             if ($user_img) {
               // For Avatar image
               var $output =
@@ -155,7 +155,7 @@ $(function () {
               $name +
               '</span>' +
               '<small class="emp_post text-truncate text-muted">' +
-              $post +
+              $Photo +
               '</small>' +
               '</div>' +
               '</div>';
@@ -268,7 +268,7 @@ $(function () {
       ajax: assetsPath + 'json/table-datatable.json',
       columns: [
         { data: 'full_name' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'email' },
         { data: 'city' },
         { data: 'start_date' },
@@ -341,7 +341,7 @@ $(function () {
       columns: [
         { data: 'id' },
         { data: 'full_name' },
-        { data: 'post' },
+        { data: 'Photo' },
         { data: 'email' },
         { data: 'city' },
         { data: 'start_date' },

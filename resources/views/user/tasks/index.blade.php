@@ -245,7 +245,7 @@
                                             </div>
                                             <div class="col-3">
                                                 <form action="{{ route('user.tasks.destroy', $item->id) }}"
-                                                    method="post">
+                                                    method="Photo">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn"><i

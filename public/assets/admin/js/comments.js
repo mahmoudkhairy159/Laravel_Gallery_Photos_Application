@@ -28,7 +28,7 @@ $(function() {
         { data: "user" },
         { data: "status" },
         { data: "" },
-        { data: "post" },
+        { data: "Photo" },
         { data: "created_at" },
         { data: "" }
       ],
@@ -88,10 +88,10 @@ $(function() {
         {
           targets: 4,
           render: function(data, type, full, meta) {
-            var $post = full["post"];
+            var $Photo = full["Photo"];
             var $course = full["course"];
-            if ($post != null) {
-              return `<a href="/post/${$post.id}" class="text-truncate d-flex align-items-center">${$post.name_ar}</a>`;
+            if ($Photo != null) {
+              return `<a href="/Photo/${$Photo.id}" class="text-truncate d-flex align-items-center">${$Photo.name_ar}</a>`;
             } else if ($course != null) {
               return `<a href="/course/${$course.id}" class="text-truncate d-flex align-items-center">${$course.name_ar}</a>`;
             }

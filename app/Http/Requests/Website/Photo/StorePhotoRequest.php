@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Requests\Website\Task;
+namespace App\Http\Requests\Website\Photo;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateTaskRequest extends FormRequest
+class StorePhotoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -41,9 +41,7 @@ class UpdateTaskRequest extends FormRequest
             ]);
         }
 
-
     }
-
 
 
 }
