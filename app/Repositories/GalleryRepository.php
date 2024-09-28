@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Category;
+use App\Models\Gallery;
 use Prettus\Repository\Eloquent\BaseRepository;
 
-class CategoryRepository extends BaseRepository
+class GalleryRepository extends BaseRepository
 {
     public function model()
     {
-        return Category::class;
+        return Gallery::class;
     }
     /*****************************************Retrieving For Users **************************************/
     public function getByUserId(int $userId)

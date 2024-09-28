@@ -3,21 +3,21 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Website\Category\StoreCategoryRequest;
-use App\Http\Requests\Website\Category\UpdateCategoryRequest;
-use App\Http\Requests\Website\Category\UpdateCategoryStatusRequest;
-use App\Repositories\CategoryRepository;
+use App\Http\Requests\Website\Gallery\StoreGalleryRequest;
+use App\Http\Requests\Website\Gallery\UpdateGalleryRequest;
+use App\Http\Requests\Website\Gallery\UpdateGalleryStatusRequest;
+use App\Repositories\GalleryRepository;
 
-class CategoryController extends Controller
+class GalleryController extends Controller
 {
 
     protected $_config;
-    protected $categoryRepository;
+    protected $galleryRepository;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(GalleryRepository $galleryRepository)
     {
         $this->_config = request('_config');
-        $this->categoryRepository = $categoryRepository;
+        $this->galleryRepository = $galleryRepository;
         $this->middleware('auth');
     }
 
@@ -26,7 +26,7 @@ class CategoryController extends Controller
         return redirect()->route($this->_config['redirect']);
     }
         $userId = auth()->id();
-        $items = $this->categoryRepository->getByUserId($userId)->paginate();
+        $items = $this->galleryRepository->getByUserId($userId)->paginate();
         return view($this->_config['view'], compact('items'));
     }
 
@@ -41,18 +41,18 @@ class CategoryController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreCategoryRequest $request)
+    public function store(StoreGalleryRequest $request)
     {
 
         $data = $request->validated();
         $data['user_id'] = auth()->id();
-        $created =  $this->categoryRepository->create($data);
+        $created =  $this->galleryRepository->create($data);
 
         if (!$created) {
             $request->session()->put('error', 'Something Went Wrong');
             return redirect()->back();
         }
-        $request->session()->put('success', 'Category Created SuccessFully');
+        $request->session()->put('success', 'Gallery Created SuccessFully');
         return redirect()->back();
         // return redirect()->route($this->_config['redirect']);
     }
@@ -66,7 +66,7 @@ class CategoryController extends Controller
         if (request()->has('clear_filters')) {
             return redirect()->route($this->_config['redirect'],$id);
         }
-        $item = $this->categoryRepository->where('user_id', $userId)
+        $item = $this->galleryRepository->where('user_id', $userId)
             ->with(['tasks' => function ($query) {
                 $query->filter(request()->all());
             }])
@@ -83,7 +83,7 @@ class CategoryController extends Controller
     public function edit(string $id)
     {
         $userId = auth()->id();
-        $item = $this->categoryRepository->getByUserId($userId)->find($id);
+        $item = $this->galleryRepository->getByUserId($userId)->find($id);
         if (!$item) {
             return abort(404);
         }
@@ -93,21 +93,21 @@ class CategoryController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateCategoryRequest $request, string $id)
+    public function update(UpdateGalleryRequest $request, string $id)
     {
         $userId = auth()->id();
-        $item = $this->categoryRepository->getByUserId($userId)->find($id);
+        $item = $this->galleryRepository->getByUserId($userId)->find($id);
         if (!$item) {
             return abort(404);
         }
         $data = $request->validated();
 
-        $updated =  $this->categoryRepository->update($data, $id);
+        $updated =  $this->galleryRepository->update($data, $id);
         if (!$updated) {
             $request->session()->put('error', 'Something Went Wrong');
             return redirect()->back();
         }
-        $request->session()->put('success', 'Category Updated SuccessFully');
+        $request->session()->put('success', 'Gallery Updated SuccessFully');
         return redirect()->route($this->_config['redirect']);
     }
 
@@ -119,16 +119,16 @@ class CategoryController extends Controller
     public function destroy(string $id)
     {
         $userId = auth()->id();
-        $item = $this->categoryRepository->getByUserId($userId)->find($id);
+        $item = $this->galleryRepository->getByUserId($userId)->find($id);
         if (!$item) {
             return abort(404);
         }
-        $deleted =  $this->categoryRepository->delete($id);
+        $deleted =  $this->galleryRepository->delete($id);
         if (!$deleted) {
             request()->session()->put('error', 'Something Went Wrong');
             return redirect()->back();
         }
-        request()->session()->put('success', 'Category Deleted SuccessFully');
+        request()->session()->put('success', 'Gallery Deleted SuccessFully');
         return redirect()->route($this->_config['redirect']);
     }
 }

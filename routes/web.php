@@ -1,10 +1,8 @@
 <?php
 
 use App\Http\Controllers\Website\AuthController;
-use App\Http\Controllers\Website\CategoryController;
+use App\Http\Controllers\Website\GalleryController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\Website\UserController;
-use App\Http\Controllers\Website\SettingController;
 use App\Http\Controllers\Website\DashboardController;
 use App\Http\Controllers\Website\GoogleLoginController;
 use App\Http\Controllers\Website\TaskController;
@@ -127,47 +125,47 @@ Route::prefix('user')->name('user.')->group(function () {
                 ->name('destroy');
         });
         // Tasks Management
-        // Categories Management
-        Route::controller(CategoryController::class)->name('categories.')->prefix('categories')->group(function () {
+        // Galleries Management
+        Route::controller(GalleryController::class)->name('galleries.')->prefix('galleries')->group(function () {
             Route::get('', 'index')->defaults('_config', [
-                'view' => 'user.categories.index',
-                'redirect' => 'user.categories.index',
+                'view' => 'user.galleries.index',
+                'redirect' => 'user.galleries.index',
 
             ])->name('index');
 
             Route::get('/create', 'create')->defaults('_config', [
-                'view' => 'user.categories.create',
+                'view' => 'user.galleries.create',
             ])->name('create');
 
             Route::get('/{id}', 'show')->defaults('_config', [
-                'view' => 'user.categories.show',
-                'redirect' => 'user.categories.show',
+                'view' => 'user.galleries.show',
+                'redirect' => 'user.galleries.show',
 
             ])->name('show');
 
 
             Route::get('/{id}/edit', 'edit')->defaults('_config', [
-                'view' => 'user.categories.edit',
+                'view' => 'user.galleries.edit',
             ])->name('edit');
 
             Route::post('/store', 'store')->defaults('_config', [
-                'redirect' => 'user.categories.index',
+                'redirect' => 'user.galleries.index',
             ])
                 ->name('store');
 
             Route::put('/{id}/update', 'update')
                 ->defaults('_config', [
-                    'redirect' => 'user.categories.index',
+                    'redirect' => 'user.galleries.index',
                 ])
                 ->name('update');
 
             Route::delete('/{id}/destroy', 'destroy')
                 ->defaults('_config', [
-                    'redirect' => 'user.categories.index',
+                    'redirect' => 'user.galleries.index',
                 ])
                 ->name('destroy');
         });
-        // Categories Management
+        // Galleries Management
 
         Route::get('/', function () {
             return redirect()->route('user.dashboard');

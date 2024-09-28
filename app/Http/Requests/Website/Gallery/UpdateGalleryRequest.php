@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Requests\Website\Category;
+namespace App\Http\Requests\Website\Gallery;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateCategoryRequest extends FormRequest
+class UpdateGalleryRequest extends FormRequest
 {
     /**
-     * Determine if the Category is authorized to make this request.
+     * Determine if the Gallery is authorized to make this request.
      */
     public function authorize(): bool
     {

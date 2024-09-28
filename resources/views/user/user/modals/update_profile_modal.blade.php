@@ -25,7 +25,11 @@
                                         <input type="email" class="form-control" id="email" name="email"
                                             value="{{ old('email', $item->email) }}" required>
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label for="bio" class="form-label">Bio</label>
+                                        <input type="text" class="form-control" id="bio" name="bio"
+                                            value="{{ old('bio', $item->bio) }}" required>
+                                    </div>
                                     <div class="mb-3">
                                         <label for="image" class="form-label">Profile Image</label>
                                         <input type="file" class="form-control" id="image" name="image"
