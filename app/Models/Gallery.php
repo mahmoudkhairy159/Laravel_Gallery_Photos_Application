@@ -13,20 +13,27 @@ class Gallery extends Model
         'name',
         'description',
         'visibility',
-        'cover_photo_id',
+        'image',
         'user_id',
 
     ];
 
-    // Define relationship with User model
+   /**
+     * Get the user who owns the gallery.
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // Define relationship with Task model (if tasks belong to categories)
-    public function tasks()
+    /**
+     * Get all photos that belong to the gallery.
+     */
+    public function photos()
     {
-        return $this->hasMany(Task::class, 'category_id');
+        return $this->hasMany(Photo::class);
     }
+
+    
+
 }

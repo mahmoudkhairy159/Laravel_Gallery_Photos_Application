@@ -19,7 +19,23 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     const FILES_DIRECTORY = 'users';
-    protected $guarded = [];
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'bio',
+        'image',
+    ];
+
+    /**
+     * The attributes that should be hidden for serialization.
+     *
+     * @var array<int, string>
+     */
+    protected $hidden = [
+        'password',
+        'remember_token',
+    ];
     protected $appends = ['image_url'];
     //status
 
@@ -31,15 +47,7 @@ class User extends Authenticatable
         return $this->image ? $this->getFileAttribute($this->image) : null;
     }
 
-    /**
-     * The attributes that should be hidden for serialization.
-     *
-     * @var array<int, string>
-     */
-    protected $hidden = [
-        'password',
-        'remember_token',
-    ];
+
 
     /**
      * The attributes that should be cast.
@@ -51,12 +59,59 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function tasks()
-    {
-        return $this->hasMany(Task::class, 'user_id');
-    }
+  /**
+     * Get all galleries created by the user.
+     */
     public function galleries()
     {
-        return $this->hasMany(Gallery::class, 'user_id');
+        return $this->hasMany(Gallery::class);
+    }
+
+    /**
+     * Get all photos uploaded by the user.
+     */
+    public function photos()
+    {
+        return $this->hasMany(Photo::class);
+    }
+
+    /**
+     * Get all comments made by the user on photos.
+     */
+    public function photoComments()
+    {
+        return $this->hasMany(PhotoComment::class);
+    }
+
+    /**
+     * Get all likes made by the user on photos.
+     */
+    public function photoLikes()
+    {
+        return $this->hasMany(PhotoLike::class);
+    }
+
+    /**
+     * Get all views (photo watch history) made by the user on photos.
+     */
+    public function photoWatches()
+    {
+        return $this->hasMany(PhotoWatch::class);
+    }
+
+    /**
+     * Get all saved photos by the user.
+     */
+    public function photoSaves()
+    {
+        return $this->belongsToMany(Photo::class, 'photo_saves');
+    }
+
+    /**
+     * Get all tags created or associated by the user.
+     */
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'user_tags');
     }
 }

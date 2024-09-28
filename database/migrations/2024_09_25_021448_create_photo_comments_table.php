@@ -18,7 +18,7 @@ return new class extends Migration
             $table->foreignId('photo_id')->nullable()->constrained('photos')->onDelete('cascade');
             $table->tinyInteger('status')->default(1);
              //comment_reply
-             $table->unsignedBigInteger('parent_comment_id')->nullable();
+             $table->unsignedBigInteger(column: 'parent_comment_id')->nullable();
              $table->foreign('parent_comment_id')->references('id')->on('photo_comments')->onDelete('cascade');
             $table->timestamps();
             $table->softDeletes();

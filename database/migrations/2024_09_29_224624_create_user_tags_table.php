@@ -11,14 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('galleries', function (Blueprint $table) {
-            $table->id();
+        Schema::create('user_tags', function (Blueprint $table) {
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('name');
-            $table->text('description')->nullable();
-            $table->enum('visibility', ['public', 'private', 'shared'])->default('private');
-            $table->string('image')->nullable();
-            $table->timestamps();
+            $table->foreignId('tag_id')->constrained()->onDelete('cascade');
+            $table->primary(['user_id', 'tag_id']);  // Composite primary key
         });
     }
 
@@ -27,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('galleries');
+        Schema::dropIfExists('user_tags');
     }
 };
