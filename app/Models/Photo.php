@@ -15,11 +15,10 @@ class Photo extends Model
 
     protected $fillable = [
         'user_id',
-        'gallery_id',
-        'title',
-        'description',
+        'body',
         'image',
         'visibility',
+        'parent_photo_id'
     ];
 
     // Define relationship with User model

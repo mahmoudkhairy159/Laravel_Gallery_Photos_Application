@@ -18,7 +18,7 @@ class PhotoComment extends Model
     protected $fillable = [
         'user_id',
         'photo_id',
-        'comment',
+        'content',
         'parent_comment_id',
     ];
 

@@ -12,9 +12,7 @@ class PhotoRepository extends BaseRepository
     public $retrievedData = [
         'id',
         'user_id',
-        'gallery_id',
-        'title',
-        'description',
+        'body',
         'image',
         'visibility',
         'created_at',

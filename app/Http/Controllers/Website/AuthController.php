@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Website;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Api\V1\User\UpdateUserRequest;
+use App\Http\Requests\Website\User\UpdateUserRequest;
 use App\Http\Requests\Website\Auth\UserLoginRequest;
 use App\Http\Requests\Website\User\ChangePasswordRequest;
 use App\Http\Requests\Website\User\StoreUserRequest;

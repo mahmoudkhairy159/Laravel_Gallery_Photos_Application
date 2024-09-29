@@ -13,13 +13,14 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('gallery_id')->constrained()->onDelete('cascade');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('title')->nullable();
-            $table->text('description')->nullable();
-            $table->string( 'image');
+            $table->text('body')->nullable();
+            $table->string('image');
             $table->json('tags')->nullable();  // Optional JSON field for tags
             $table->timestamps();
+            //shared photos
+            $table->unsignedBigInteger('parent_photo_id')->nullable();
+            $table->foreign('parent_photo_id')->references('id')->on('photos')->onDelete('cascade');
         });
     }
 

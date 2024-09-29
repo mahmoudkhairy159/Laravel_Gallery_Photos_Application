@@ -23,7 +23,7 @@ class StorePhotoRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string', 'max:255'],
-            'description' => ['nullable', 'string'],
+            
             'due_date' => ['nullable', 'date', 'after_or_equal:today'],
             'priority' => ['required', 'in:low,medium,high'],
             'status' => ['required', 'in:pending,in_progress,completed'],
